@@ -1,13 +1,13 @@
 import { RecipeModule } from './recipe.module';
 
 describe('RecipeModule', () => {
-  let recipeModule: RecipeModule;
+    let recipeModule: RecipeModule;
 
-  beforeEach(() => {
-    recipeModule = new RecipeModule();
-  });
+    beforeEach(() => {
+        recipeModule = new RecipeModule();
+    });
 
-  it('should create an instance', () => {
-    expect(recipeModule).toBeTruthy();
-  });
+    it('should create an instance', () => {
+        expect(recipeModule).toBeTruthy();
+    });
 });
