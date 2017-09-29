@@ -6,6 +6,7 @@ import { GloballySharedModule } from './globally-shared/globally-shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipeModule } from './recipe/recipe.module';
+import { CookbookService } from './store/cookbook.service';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,7 @@ import { RecipeModule } from './recipe/recipe.module';
         AppRoutingModule,
         RecipeModule
     ],
-    providers: [],
+    providers: [CookbookService],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
