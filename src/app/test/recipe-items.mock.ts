@@ -1,6 +1,6 @@
 import { random, name } from 'faker';
 import * as _ from 'lodash';
-import { RecipeItem } from '../models/recipe-item';
+import { RecipeItem } from '../store/models/recipe-item';
 
 export const mockRecipeItems: RecipeItem[] = getMockRecipeItems();
 

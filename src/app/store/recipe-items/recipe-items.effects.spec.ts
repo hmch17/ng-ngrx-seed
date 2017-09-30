@@ -7,10 +7,10 @@ import { hot, cold } from 'jasmine-marbles';
 
 import { RecipeItemsEffects } from './recipe-items.effects';
 import { CookbookApiService } from '../cookbook-api.service';
-
 import { RequestRecipeItemsAction, SetRecipeItemsAction } from './recipe-items.actions';
-import { cookbookApiServiceStub } from '../test/cookbook-api.service.spec';
-import { mockRecipeItems } from '../test/recipe-items.mock';
+
+import { cookbookApiServiceStub } from '../../test/cookbook-api.service.spec';
+import { mockRecipeItems } from '../../test/recipe-items.mock';
 
 describe('RecipeItemsEffects', () => {
     let apiService, effects;

@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { mockRecipeItems } from '../test/recipe-items.mock';
-import { mockAction } from '../test/action.mock';
+import { mockRecipeItems } from '../../test/recipe-items.mock';
+import { mockAction } from '../../test/action.mock';
 import { recipeItemsReducer } from './recipe-items.reducer';
 import { RecipeItemsAction, SetRecipeItemsAction } from './recipe-items.actions';
 import { RecipeItem } from '../models/recipe-item';
@@ -16,7 +16,7 @@ describe('recipeItemsReducer', () => {
     });
     it('should return the current state when random action is fed', () => {
         const outcome = recipeItemsReducer(state, <RecipeItemsAction>mockAction);
-        const expected = mockRecipeItems;
+        const expected = state;
         expect(outcome).toEqual(expected);
     });
 });
