@@ -1,8 +1,37 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Store } from '@ngrx/store';
+
+import { RecipeItem } from './models/recipe-item';
+import { CookbookApiService } from './cookbook-api.service';
+import { CookbookState } from './cookbook.state';
+import { recipeItemsSelector } from './recipe-items/recipe-items.selector';
+import { selectedRecipeIdSelector } from './selected-recipe-id/selected-recipe-id.selector';
+import { RequestRecipeItemsAction } from './recipe-items/recipe-items.actions';
+import { SetSelectedRecipeIdAction } from './selected-recipe-id/selected-recipe-id.actions';
 
 @Injectable()
 export class CookbookService {
 
-  constructor() { }
+    constructor(
+        private store: Store<CookbookState>
+    ) { }
+
+    load(): void {
+        this.store.dispatch(new RequestRecipeItemsAction(true));
+    }
+
+    set selectedRecipeId(id: string) {
+        this.store.dispatch(new SetSelectedRecipeIdAction(id));
+    }
+
+    get recipeItems$(): Observable<RecipeItem[]> {
+        this.store.dispatch(new RequestRecipeItemsAction(false));
+        return this.store.select(recipeItemsSelector);
+    }
+
+    get selectedRecipeId$(): Observable<string> {
+        return this.store.select(selectedRecipeIdSelector);
+    }
 
 }
