@@ -27,10 +27,18 @@ describe('RecipeItemsEffects', () => {
         setup();
     });
 
-
     describe('requestRecipeItems$', () => {
         it('should return a SetPaginationAction', () => {
             actions = hot('--a-', { a: new RequestRecipeItemsAction(true) });
+            const expectedResult = cold('--b', { b: new SetRecipeItemsAction(mockRecipeItems) });
+
+            expect(effects.requestRecipeItems$).toBeObservable(expectedResult);
+        });
+    });
+
+    describe('requestRecipeItems$', () => {
+        it('should return a SetPaginationAction when the force is false', () => {
+            actions = hot('--a-', { a: new RequestRecipeItemsAction(false) });
             const expectedResult = cold('--b', { b: new SetRecipeItemsAction(mockRecipeItems) });
 
             expect(effects.requestRecipeItems$).toBeObservable(expectedResult);
