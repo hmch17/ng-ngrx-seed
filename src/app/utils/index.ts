@@ -1,1 +1,2 @@
-export * from './rxjs.operators';
+export * from './rxjs-operators';
+export * from './store';

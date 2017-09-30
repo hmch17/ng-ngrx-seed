@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipeModule } from './recipe/recipe.module';
 import { CookbookService } from './store/cookbook.service';
+import { CookbookApiService } from './store/cookbook-api.service';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,7 @@ import { CookbookService } from './store/cookbook.service';
         AppRoutingModule,
         RecipeModule
     ],
-    providers: [CookbookService],
+    providers: [CookbookService, CookbookApiService],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
