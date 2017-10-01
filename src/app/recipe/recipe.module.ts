@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RecipeRoutingModule } from './recipe-routing.module';
-import { EditComponent } from './edit/edit.component';
+import { RecipeEditComponent } from './edit/edit.component';
 import { RecipeService } from './store/recipe.service';
 
 @NgModule({
@@ -10,7 +10,7 @@ import { RecipeService } from './store/recipe.service';
         CommonModule,
         RecipeRoutingModule
     ],
-    declarations: [ EditComponent ],
-    providers: [RecipeService]
+    declarations: [ RecipeEditComponent ],
+    providers: [ RecipeService ]
 })
 export class RecipeModule { }
