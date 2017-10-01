@@ -17,8 +17,14 @@ export class RecipeItemsEffects {
         this.requestRecipeItems$ = actions$
             .ofType(RecipeItemsActionTypes.REQUEST)
             .map((action: RequestRecipeItemsAction) => action.payload)
-            .switchMap((force: boolean) => apiService.getRecipeItems$(force))
+            .switchMap((userId: string) => this.getRecipeItems$(userId))
             .distinctUntilChanged()
             .map(recipeItems => new SetRecipeItemsAction(recipeItems));
+    }
+
+    private getRecipeItems$(userId: string): Observable<RecipeItem[]> {
+        return this.apiService.getRecipeItems$(userId)
+            .publishLast()
+            .refCount();
     }
 }

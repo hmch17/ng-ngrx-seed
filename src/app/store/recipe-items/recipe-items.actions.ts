@@ -7,7 +7,7 @@ export class RecipeItemsActionTypes {
 
 export class RequestRecipeItemsAction implements Action {
     readonly type = RecipeItemsActionTypes.REQUEST;
-    constructor(public payload: boolean) { }
+    constructor(public payload: string) { }
 }
 
 export class SetRecipeItemsAction implements Action {

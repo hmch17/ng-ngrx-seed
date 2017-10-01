@@ -9,9 +9,13 @@ import { recipeItemsSelector } from './recipe-items/recipe-items.selector';
 import { selectedRecipeIdSelector } from './selected-recipe-id/selected-recipe-id.selector';
 import { mockRecipeItems } from '../test/recipe-items.mock';
 import { SetSelectedRecipeIdAction } from './selected-recipe-id/selected-recipe-id.actions';
+import { mockUser } from '../test/user.mock';
 
 describe('CookbookService', () => {
     let store: Store<CookbookState>;
+    const id = mockRecipeItems[ 0 ].id;
+    const userId = mockUser.id;
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
@@ -28,10 +32,10 @@ describe('CookbookService', () => {
         expect(service).toBeTruthy();
     }));
 
-    it('should dispatch a RequestRecipeItemsAction(true) when load() is fired', inject(
+    it('should dispatch a RequestRecipeItemsAction(userId) when load(userId) is fired', inject(
         [ CookbookService ], (service: CookbookService) => {
-            service.load();
-            expect(store.dispatch).toHaveBeenCalledWith(new RequestRecipeItemsAction(true));
+            service.load(userId);
+            expect(store.dispatch).toHaveBeenCalledWith(new RequestRecipeItemsAction(userId));
         })
     );
 
@@ -44,7 +48,6 @@ describe('CookbookService', () => {
 
     it('should dispatch a SetSelectedRecipeIdAction(id) when selectedRecipeId() is fired', inject(
         [ CookbookService ], (service: CookbookService) => {
-            const id = mockRecipeItems[ 0 ].id;
             service.selectedRecipeId = id;
             expect(store.dispatch).toHaveBeenCalledWith(new SetSelectedRecipeIdAction(id));
         })

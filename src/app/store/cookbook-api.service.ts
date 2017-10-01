@@ -10,7 +10,7 @@ export class CookbookApiService {
 
     constructor() { }
 
-    getRecipeItems$(force = false): Observable<RecipeItem[]> {
+    getRecipeItems$(userId: string): Observable<RecipeItem[]> {
         return Observable.of(mockRecipeItems);
     }
 

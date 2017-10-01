@@ -12,17 +12,15 @@ import { SetSelectedRecipeIdAction } from './selected-recipe-id/selected-recipe-
 
 @Injectable()
 export class CookbookService {
-
     constructor(
         private store: Store<CookbookState>
     ) { }
 
-    load(): void {
-        this.store.dispatch(new RequestRecipeItemsAction(true));
+    load(userId: string): void {
+        this.store.dispatch(new RequestRecipeItemsAction(userId));
     }
 
     get recipeItems$(): Observable<RecipeItem[]> {
-        this.store.dispatch(new RequestRecipeItemsAction(false));
         return this.store.select(recipeItemsSelector);
     }
 
