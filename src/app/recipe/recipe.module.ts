@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RecipeRoutingModule } from './recipe-routing.module';
 import { RecipeEditComponent } from './edit/edit.component';
 import { RecipeService } from './store/recipe.service';
+import { RecipeApiService } from './store/recipe-api.service';
 
 @NgModule({
     imports: [
@@ -11,6 +12,6 @@ import { RecipeService } from './store/recipe.service';
         RecipeRoutingModule
     ],
     declarations: [ RecipeEditComponent ],
-    providers: [ RecipeService ]
+    providers: [ RecipeService, RecipeApiService ]
 })
 export class RecipeModule { }
