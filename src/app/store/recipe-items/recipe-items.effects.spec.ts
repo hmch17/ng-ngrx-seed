@@ -9,7 +9,7 @@ import { RecipeItemsEffects } from './recipe-items.effects';
 import { CookbookApiService } from '../cookbook-api.service';
 import { RequestRecipeItemsAction, SetRecipeItemsAction } from './recipe-items.actions';
 
-import { cookbookApiServiceStub } from '../../test/cookbook-api.service.spec';
+import { cookbookApiServiceStub } from '../../test/cookbook-api.service.mock';
 import { mockRecipeItems } from '../../test/recipe-items.mock';
 import { mockUser } from '../../test/user.mock';
 

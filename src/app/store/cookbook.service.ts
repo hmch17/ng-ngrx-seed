@@ -21,7 +21,8 @@ export class CookbookService {
     }
 
     get recipeItems$(): Observable<RecipeItem[]> {
-        return this.store.select(recipeItemsSelector);
+        return this.store.select(recipeItemsSelector)
+            .catch(err => Observable.throw(err));
     }
 
     set selectedRecipeId(id: string) {
@@ -29,7 +30,8 @@ export class CookbookService {
     }
 
     get selectedRecipeId$(): Observable<string> {
-        return this.store.select(selectedRecipeIdSelector);
+        return this.store.select(selectedRecipeIdSelector)
+            .catch(err => Observable.throw(err));
     }
 
 }

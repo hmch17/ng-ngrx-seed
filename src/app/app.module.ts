@@ -12,6 +12,7 @@ import { CookbookApiService } from './store/cookbook-api.service';
 import { cookbookReducer } from './store/cookbook.reducer';
 import { ErrorComponent } from './error/error.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { UserService } from './store/user.service';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,7 @@ import { AuthGuardService } from './services/auth-guard.service';
         RecipeModule,
         StoreModule.forRoot(cookbookReducer)
     ],
-    providers: [ CookbookService, CookbookApiService, AuthGuardService ],
+    providers: [ CookbookService, CookbookApiService, AuthGuardService, UserService ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }

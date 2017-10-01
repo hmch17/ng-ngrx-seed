@@ -1,6 +1,7 @@
 import { createSelector } from '@ngrx/store';
 import { CookbookState } from '../cookbook.state';
 import { cookbookSelector } from '../cookbook.selector';
+import { User } from '../models/user';
 
-export const selectedRecipeIdSelector =
-    createSelector(cookbookSelector, (state: CookbookState): string => state.selectedRecipeId);
+export const userSelector =
+    createSelector(cookbookSelector, (state: CookbookState): User => state.user);
