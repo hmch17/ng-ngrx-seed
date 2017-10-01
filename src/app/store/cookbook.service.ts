@@ -21,13 +21,13 @@ export class CookbookService {
         this.store.dispatch(new RequestRecipeItemsAction(true));
     }
 
-    set selectedRecipeId(id: string) {
-        this.store.dispatch(new SetSelectedRecipeIdAction(id));
-    }
-
     get recipeItems$(): Observable<RecipeItem[]> {
         this.store.dispatch(new RequestRecipeItemsAction(false));
         return this.store.select(recipeItemsSelector);
+    }
+
+    set selectedRecipeId(id: string) {
+        this.store.dispatch(new SetSelectedRecipeIdAction(id));
     }
 
     get selectedRecipeId$(): Observable<string> {
