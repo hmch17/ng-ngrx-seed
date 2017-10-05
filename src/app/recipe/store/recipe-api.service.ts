@@ -18,22 +18,22 @@ export class RecipeApiService {
     ) { }
 
     getRecipe$(id: string): Observable<Recipe> {
-        return cache(this.http.get(`${this.baseUrl}/recipe/${id}`))
+        return cache(this.http.get(`${this.baseUrl}/recipes/${id}`))
             .catch(err => Observable.throw(err));
     }
 
     postNewRecipe$(newRecipe: NewRecipe): Observable<Recipe> {
-        return cache(this.http.post(`${this.baseUrl}/recipe`, newRecipe))
+        return cache(this.http.post(`${this.baseUrl}/recipes`, newRecipe))
             .catch(err => Observable.throw(err));
     }
 
     updateRecipe$(recipe: Recipe): Observable<Recipe> {
-        return cache(this.http.put(`${this.baseUrl}/recipe/${recipe.id}`, recipe))
+        return cache(this.http.put(`${this.baseUrl}/recipes/${recipe.id}`, recipe))
             .catch(err => Observable.throw(err));
     }
 
     deleteRecipe$(id: string): Observable<Response> {
-        return cache(this.http.delete(`${this.baseUrl}/recipe/${id}`))
+        return cache(this.http.delete(`${this.baseUrl}/recipes/${id}`))
             .catch(err => Observable.throw(err));
     }
 

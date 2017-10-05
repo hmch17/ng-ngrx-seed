@@ -19,7 +19,8 @@ export class CookbookApiService {
     ) { }
 
     getRecipeItems$(userId: string): Observable<RecipeItem[]> {
-        return cache(this.http.get(`${this.baseUrl}/cookbook/${userId}`))
+        return cache(this.http.get(`${this.baseUrl}/cookbooks/${userId}`)
+            .map(cookbook => cookbook[ 'recipeItems' ]))
             .catch(err => Observable.throw(err));
     }
 

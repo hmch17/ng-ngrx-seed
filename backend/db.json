@@ -1,0 +1,27 @@
+{
+    "cookbooks": [{
+        "id": "johndoe1",
+        "recipeItems": [{
+                "id": 1,
+                "name": "Egg Salad"
+            },
+            {
+                "id": 2,
+                "name": "Fish and Chips"
+            }
+        ]
+    }],
+    "recipes": [{
+        "id": 1,
+        "name": "Egg Salad",
+        "introduction": "A simple salad that everyone can make at home"
+    }, {
+        "id": 2,
+        "name": "Fish and Chips",
+        "introduction": "Deep-fried fish and fries"
+    }],
+    "user": {
+        "id": "johndoe1",
+        "name": "John Doe1"
+    }
+}
