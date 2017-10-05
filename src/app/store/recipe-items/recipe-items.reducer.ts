@@ -1,7 +1,7 @@
 import { RecipeItem } from '../models/recipe-item';
 import { RecipeItemsAction, RecipeItemsActionTypes } from './recipe-items.actions';
 export function recipeItemsReducer(
-    state: RecipeItem[] = [],
+    state: RecipeItem[],
     action: RecipeItemsAction
 ): RecipeItem[] {
     switch (action.type) {

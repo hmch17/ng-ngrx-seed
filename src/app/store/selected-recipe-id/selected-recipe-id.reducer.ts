@@ -1,6 +1,6 @@
 import { SelectedRecipeIdAction, SelectedRecipeIdActionTypes } from './selected-recipe-id.actions';
 export function selectedRecipeIdReducer(
-    state: string = null,
+    state: string,
     action: SelectedRecipeIdAction
 ): string {
     switch (action.type) {

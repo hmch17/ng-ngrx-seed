@@ -7,6 +7,7 @@ import { RecipeItem } from './models/recipe-item';
 import { User } from './models/user';
 import { UserLogoutAction } from './user/user.actions';
 import { environment } from '../../environments/environment';
+import { cache } from '../utils/rxjs-helpers';
 
 @Injectable()
 export class CookbookApiService {
@@ -18,18 +19,14 @@ export class CookbookApiService {
     ) { }
 
     getRecipeItems$(userId: string): Observable<RecipeItem[]> {
-        return <Observable<RecipeItem[]>>
-            this.http.get(`${this.baseUrl}/cookbook/${userId}`)
-                .publishLast()
-                .refCount()
-                .catch(err => Observable.throw(err));
+        return cache(this.http.get(`${this.baseUrl}/cookbook/${userId}`))
+            .catch(err => Observable.throw(err));
     }
 
     getUser$(force = false): Observable<User> {
         if (force || !this.user$) {
-            this.user$ = <Observable<User>>this.http.get(`${this.baseUrl}/user`)
-                .publishLast()
-                .refCount();
+            this.user$ = cache(this.http.get(`${this.baseUrl}/user`))
+                .catch(err => Observable.throw(err));
         }
         return this.user$;
     }

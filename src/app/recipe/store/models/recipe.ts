@@ -1,4 +1,4 @@
-import { RecipeItem } from '../../../store/models/recipe-item';
-export interface Recipe extends RecipeItem {
-    introduction: string;
+import { NewRecipe } from './new-recipe';
+export interface Recipe extends NewRecipe {
+    id: string;
 }
