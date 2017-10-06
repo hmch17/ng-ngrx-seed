@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AppOverviewComponent } from './overview/overview.component';
+import { UserIdService } from './services/user-id.service';
 
 const routes: Routes = [
     {
@@ -14,7 +15,8 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                component: AppOverviewComponent
+                component: AppOverviewComponent,
+                resolve: { userId: UserIdService }
             },
             {
                 path: 'recipe',

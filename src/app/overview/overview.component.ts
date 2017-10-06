@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../store/user.service';
+import { ActivatedRoute } from '@angular/router';
 import { CookbookService } from '../store/cookbook.service';
 import { Observable } from 'rxjs/Observable';
 import { RecipeItem } from '../store/models/recipe-item';
@@ -13,14 +13,13 @@ export class AppOverviewComponent implements OnInit {
     recipeItems$: Observable<RecipeItem[]>;
 
     constructor(
-        private user: UserService,
+        private route: ActivatedRoute,
         private cookbook: CookbookService
     ) { }
 
     ngOnInit() {
-        this.user.get$()
-            .map(user => user.id)
-            .do(userId => this.cookbook.load(userId));
+        const userId = this.route.snapshot.data[ 'userId' ];
+        this.cookbook.load(userId);
         this.recipeItems$ = this.cookbook.recipeItems$;
     }
 

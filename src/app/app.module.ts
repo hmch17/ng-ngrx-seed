@@ -18,6 +18,8 @@ import { UserService } from './store/user.service';
 import { AppOverviewComponent } from './overview/overview.component';
 import { UserEffects } from './store/user/user.effects';
 import { RecipeItemsEffects } from './store/recipe-items/recipe-items.effects';
+import { UserIdService } from './services/user-id.service';
+import { environment } from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -32,9 +34,15 @@ import { RecipeItemsEffects } from './store/recipe-items/recipe-items.effects';
         AppRoutingModule,
         RecipeModule,
         StoreModule.forRoot(cookbookReducer),
-        EffectsModule.forRoot([ RecipeItemsEffects, UserEffects ])
+        EffectsModule.forRoot([ UserEffects, RecipeItemsEffects ]),
+        ...environment.imports
     ],
-    providers: [ CookbookService, CookbookApiService, AuthGuardService, UserService ],
+    providers: [
+        CookbookService,
+        CookbookApiService,
+        AuthGuardService,
+        UserService,
+        UserIdService ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
