@@ -56,7 +56,7 @@ describe('UserEffects', () => {
     });
 
     describe('userLogout$', () => {
-        it('should switch to apiService.logout when UserLogoutAction is dispatched', () => {
+        it('should switch to apiService.logout$ when UserLogoutAction is dispatched', () => {
             spyOn(apiService, 'logout');
 
             actions = new ReplaySubject(1);

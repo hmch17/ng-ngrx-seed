@@ -32,9 +32,10 @@ export class CookbookApiService {
         return this.user$;
     }
 
-    logout(): Observable<any> {
-        return this.http.post(`${this.baseUrl}/user/logout`, null)
-            .do(() => this.startLogin());
+    logout() {
+        this.http.post(`${this.baseUrl}/user/logout`, null)
+            .do(() => this.startLogin())
+            .catch(err => Observable.throw(err));
     }
 
     startLogin() {

@@ -5,7 +5,7 @@ import { UserLogoutAction } from '../store/user/user.actions';
 import { mockUser } from './user.mock';
 export const cookbookApiServiceStub = {
     getRecipeItems$: (userId: string) => Observable.of(mockRecipeItems),
-    logout: () => Observable.of(new UserLogoutAction()),
-    startLogin: () => Observable.of(null),
+    logout: () => Observable.empty(),
+    startLogin: () => { },
     getUser$: () => Observable.of(mockUser)
 };

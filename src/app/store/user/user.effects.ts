@@ -11,7 +11,7 @@ import { User } from '../models/user';
 @Injectable()
 export class UserEffects {
     @Effect() userStatus$: Observable<UserAction>;
-    @Effect({ dispatch: false }) userLogout$: Observable<UserAction>;
+    @Effect({ dispatch: false }) userLogout$: any;
     @Effect({ dispatch: false }) userLogin$: any;
 
     constructor(
@@ -34,7 +34,7 @@ export class UserEffects {
 
         this.userLogout$ = this.actions$
             .ofType(UserActionTypes.LOGOUT)
-            .switchMapTo(this.apiService.logout());
+            .do(() => this.apiService.logout());
 
         this.userLogin$ = this.actions$
             .ofType(UserActionTypes.LOGIN)
