@@ -4,7 +4,7 @@
     "license": "MIT",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "ng serve --sourcemaps=false",
         "build": "ng build",
         "test": "ng test --sourcemaps=false --single-run",
         "lint": "ng lint",

@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let recipeItem of recipeItems$ | async" [routerLink]="'recipe/' + recipeItem.id">
+        {{ recipeItem.name }}
+    </li>
+</ul>

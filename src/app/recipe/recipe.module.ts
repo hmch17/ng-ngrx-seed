@@ -5,6 +5,7 @@ import { RecipeRoutingModule } from './recipe-routing.module';
 import { RecipeEditComponent } from './edit/edit.component';
 import { RecipeService } from './store/recipe.service';
 import { RecipeApiService } from './store/recipe-api.service';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
     imports: [

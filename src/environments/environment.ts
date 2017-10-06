@@ -1,5 +1,5 @@
 export const environment = {
     production: false,
-    routerConfig: { enableTracing: true },
+    routerConfig: { enableTracing: false },
     baseUrl: 'http://localhost:3000'
 };

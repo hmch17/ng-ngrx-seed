@@ -9,7 +9,7 @@ import {
 import { User } from '../models/user';
 
 @Injectable()
-export class UserStatusEffects {
+export class UserEffects {
     @Effect() userStatus$: Observable<UserAction>;
     @Effect({ dispatch: false }) userLogout$: Observable<UserAction>;
     @Effect({ dispatch: false }) userLogin$: any;

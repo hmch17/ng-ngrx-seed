@@ -4,17 +4,23 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './error/error.component';
 import { AuthGuardService } from './services/auth-guard.service';
+import { AppOverviewComponent } from './overview/overview.component';
 
 const routes: Routes = [
     {
         path: '',
         component: AppComponent,
-        canActivate: [ AuthGuardService ]
-    },
-    {
-        path: 'recipe',
-        loadChildren: './recipe/recipe.module.ts#RecipeModule',
-        canActivate: [ AuthGuardService ]
+        // canActivate: [ AuthGuardService ],
+        children: [
+            {
+                path: '',
+                component: AppOverviewComponent
+            },
+            {
+                path: 'recipe',
+                loadChildren: './recipe/recipe.module.ts#RecipeModule'
+            }
+        ]
     },
     {
         path: '**',

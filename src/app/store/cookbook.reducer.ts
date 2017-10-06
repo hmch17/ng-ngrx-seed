@@ -3,10 +3,12 @@ import { CookbookState } from './cookbook.state';
 
 import { recipeItemsReducer } from './recipe-items/recipe-items.reducer';
 import { selectedRecipeIdReducer } from './selected-recipe-id/selected-recipe-id.reducer';
+import { userReducer } from './user/user.reducer';
 
 const combinedReducer = combineReducers({
     recipeItems: recipeItemsReducer,
-    selectedRecipeId: selectedRecipeIdReducer
+    selectedRecipeId: selectedRecipeIdReducer,
+    user: userReducer
 });
 
 // This is a workaround for AOT issue

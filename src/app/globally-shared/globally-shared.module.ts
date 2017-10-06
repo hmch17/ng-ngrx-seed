@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MdComponentsModule } from './md-components.module';
@@ -13,6 +14,7 @@ const DECLARATIONS = [
 const IMPORTS = [
     CommonModule,
     FormsModule,
+    RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
     MdComponentsModule
