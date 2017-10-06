@@ -10,8 +10,7 @@ import { UserIdService } from './services/user-id.service';
 const routes: Routes = [
     {
         path: '',
-        component: AppComponent,
-        // canActivate: [ AuthGuardService ],
+        canActivate: [ AuthGuardService ],
         children: [
             {
                 path: '',

@@ -18,7 +18,8 @@ export class AppOverviewComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        const userId = this.route.snapshot.data[ 'userId' ];
+        const userId = this.route.snapshot.paramMap.get('userId');
+        console.log(userId);
         this.cookbook.load(userId);
         this.recipeItems$ = this.cookbook.recipeItems$;
     }

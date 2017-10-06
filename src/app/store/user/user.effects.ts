@@ -23,13 +23,7 @@ export class UserEffects {
             .map((action: RequestUserAction): boolean => action.payload)
             .switchMap((force: boolean) => this.apiService.getUser$(force))
             .distinctUntilChanged()
-            .map((userStatus: User) => {
-                if (userStatus) {
-                    return new SetUserAction(userStatus);
-                } else {
-                    throw new Error('user status not set');
-                }
-            })
+            .map((userStatus: User) => new SetUserAction(userStatus))
             .catch(error => Observable.of(new UserLoginAction()));
 
         this.userLogout$ = this.actions$

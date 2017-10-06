@@ -12,7 +12,7 @@ export class UserIdService implements Resolve<string> {
 
     resolve(route: ActivatedRouteSnapshot): Observable<string> {
         return this.userService.get$()
-            .map(user => user[ 'id' ]);
+            .map(user => user.id);
     }
 
 }

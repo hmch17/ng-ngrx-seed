@@ -13,7 +13,6 @@ export class AuthGuardService implements CanActivate {
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
         return this.userService.get$()
-            .do(console.log)
             .filter(hasValue => !!hasValue)
             .map(user => !!user);
     }
