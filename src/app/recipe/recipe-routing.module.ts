@@ -1,15 +1,12 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { RecipeEditComponent } from './edit/edit.component';
+import { environment } from '../../environments/environment';
 
 const routes: Routes = [
     {
-        path: ':id',
+        path: 'byid/:id',
         component: RecipeEditComponent
-    },
-    {
-        path: '**',
-        redirectTo: '/'
     }
 ];
 

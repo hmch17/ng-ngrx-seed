@@ -12,6 +12,7 @@ export class UserIdService implements Resolve<string> {
 
     resolve(route: ActivatedRouteSnapshot): Observable<string> {
         return this.userService.get$()
+            .first()
             .map(user => user.id);
     }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
@@ -13,9 +13,9 @@ const routes: Routes = [
         canActivate: [ AuthGuardService ],
         children: [
             {
-                path: 'overview',
+                path: '',
                 component: AppOverviewComponent,
-                resolve: { userId: UserIdService }
+                resolve: { userId: UserIdService },
             },
             {
                 path: 'recipe',
@@ -25,7 +25,7 @@ const routes: Routes = [
     },
     {
         path: '**',
-        redirectTo: '/'
+        redirectTo: '/overview'
     }
 ];
 
