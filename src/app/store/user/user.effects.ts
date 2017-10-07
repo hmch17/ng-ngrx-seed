@@ -10,7 +10,7 @@ import { User } from '../models/user';
 
 @Injectable()
 export class UserEffects {
-    @Effect() userStatus$: Observable<UserAction>;
+    @Effect() requestUser$: Observable<UserAction>;
     @Effect({ dispatch: false }) userLogout$: any;
     @Effect({ dispatch: false }) userLogin$: any;
 
@@ -18,7 +18,7 @@ export class UserEffects {
         private actions$: Actions,
         private apiService: CookbookApiService
     ) {
-        this.userStatus$ = this.actions$
+        this.requestUser$ = this.actions$
             .ofType(UserActionTypes.REQUEST)
             .map((action: RequestUserAction): boolean => action.payload)
             .switchMap((force: boolean) => this.apiService.getUser$(force))

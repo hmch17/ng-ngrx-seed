@@ -13,7 +13,7 @@ const routes: Routes = [
         canActivate: [ AuthGuardService ],
         children: [
             {
-                path: '',
+                path: 'overview',
                 component: AppOverviewComponent,
                 resolve: { userId: UserIdService }
             },

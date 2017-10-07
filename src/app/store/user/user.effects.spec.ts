@@ -28,20 +28,20 @@ describe('UserEffects', () => {
         setup();
     });
 
-    describe('userStatus$', () => {
+    describe('requestUser$', () => {
         it('should return a SetUserStatusAction when RequestUserStatusAction is dispatched', () => {
             const expectedResult = new SetUserAction(mockUser);
 
             actions = new ReplaySubject(1);
             actions.next(new RequestUserAction(true));
 
-            effects.userStatus$.subscribe(result => {
+            effects.requestUser$.subscribe(result => {
                 expect(result).toEqual(expectedResult);
             });
         });
     });
 
-    describe('userStatus$', () => {
+    describe('requestUser$', () => {
         it('should return a UserLoginAction when RequestUserStatusAction throws an error', () => {
             const expectedResult = new UserLoginAction();
             apiService.getUser$ = () => Observable.of(null);
@@ -49,7 +49,7 @@ describe('UserEffects', () => {
             actions = new ReplaySubject(1);
             actions.next(new RequestUserAction(true));
 
-            effects.userStatus$.subscribe(result => {
+            effects.requestUser$.subscribe(result => {
                 expect(result).toEqual(expectedResult);
             });
         });

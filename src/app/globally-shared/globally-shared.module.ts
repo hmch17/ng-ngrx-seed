@@ -14,7 +14,6 @@ const DECLARATIONS = [
 const IMPORTS = [
     CommonModule,
     FormsModule,
-    RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
     MdComponentsModule
