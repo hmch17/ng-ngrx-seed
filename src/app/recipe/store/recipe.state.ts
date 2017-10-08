@@ -1,4 +1,7 @@
 import { Recipe } from './models/recipe';
+import { Process } from './models/process';
 export interface RecipeState {
-    recipe: Recipe;
+    introduction: string;
+    processes: Process[];
+    selectedProcessId: string;
 }

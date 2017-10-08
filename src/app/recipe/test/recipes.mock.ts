@@ -10,6 +10,21 @@ export const mockRecipe: Recipe = mockRecipes[ 0 ];
 function getMockRecipes(): Recipe[] {
     return mockRecipeItems.map(recipeItem => <Recipe>_.defaultsDeep(
         {
-            introduction: lorem.paragraph
+            introduction: lorem.paragraph,
+            processes: [ {
+                id: '1',
+                description: 'process one',
+                ingredients: [ {
+                    name: 'ingredient 01',
+                    quantity: 'one piece'
+                }]
+            }, {
+                id: '2',
+                description: 'process two',
+                ingredients: [ {
+                    name: 'ingredient 02',
+                    quantity: 'one piece'
+                }]
+            }]
         }, recipeItem));
 }
