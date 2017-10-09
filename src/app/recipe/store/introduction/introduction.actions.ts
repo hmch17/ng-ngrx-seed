@@ -1,13 +1,7 @@
 import { Action } from '@ngrx/store';
 export class IntroductionActionTypes {
-    static readonly REQUEST = 'REQUEST_INTRODUCTION';
     static readonly SET = 'SET_INTRODUCTION';
     static readonly POST = 'POST_INTRODUCTION';
-}
-
-export class RequestIntroductionAction implements Action {
-    readonly type = IntroductionActionTypes.REQUEST;
-    constructor(public payload: boolean) { }
 }
 
 export class SetIntroductionAction implements Action {
@@ -21,6 +15,5 @@ export class PostIntroductionAction implements Action {
 }
 
 export type IntroductionAction
-    = RequestIntroductionAction
-    | SetIntroductionAction
+    = SetIntroductionAction
     | PostIntroductionAction;

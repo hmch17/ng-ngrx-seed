@@ -6,7 +6,7 @@ import { IntroductionAction, SetIntroductionAction, PostIntroductionAction } fro
 import { Recipe } from '../models/recipe';
 import { lorem } from 'faker';
 
-describe('recipeItemsReducer', () => {
+describe('introductionReducer', () => {
     const state = lorem.paragraph;
     it('should update the state with the SetIntroductionAction\'s payload', () => {
         const updatedIntroduction = 'test';
