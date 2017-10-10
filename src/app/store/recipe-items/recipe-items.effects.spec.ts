@@ -29,7 +29,7 @@ describe('RecipeItemsEffects', () => {
     });
 
     describe('requestRecipeItems$', () => {
-        it('should return a SetPaginationAction', () => {
+        it('should return a SetRecipeItemsAction', () => {
             actions = hot('--a-', { a: new RequestRecipeItemsAction(userId) });
             const expectedResult = cold('--b', { b: new SetRecipeItemsAction(mockRecipeItems) });
 
