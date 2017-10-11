@@ -12,7 +12,7 @@ import { RequestRecipeAction, SetRecipeAction } from './recipe.actions';
 import { mockRecipes, mockRecipe } from '../test/recipes.mock';
 import { recipeApiServiceStub } from '../test/recipe-api.service.mock';
 
-describe('RecipeItemsEffects', () => {
+describe('RecipeEffects', () => {
     let apiService, effects;
     let actions: Observable<any>;
     beforeEach(() => {
@@ -30,8 +30,7 @@ describe('RecipeItemsEffects', () => {
         it('should return a SetRecipeAction', () => {
             actions = hot('--a-', { a: new RequestRecipeAction(mockRecipe.id) });
             const expectedResult = cold('--b', { b: new SetRecipeAction(mockRecipe) });
-
-            expect(effects.requestRecipeItems$).toBeObservable(expectedResult);
+            expect(effects.requestRecipe$).toBeObservable(expectedResult);
         });
     });
 

@@ -44,7 +44,7 @@ describe('UserEffects', () => {
     describe('requestUser$', () => {
         it('should return a UserLoginAction when RequestUserStatusAction throws an error', () => {
             const expectedResult = new UserLoginAction();
-            apiService.getUser$ = () => Observable.of(null);
+            apiService.getUser$ = () => Observable.throw(new Error());
 
             actions = new ReplaySubject(1);
             actions.next(new RequestUserAction(true));
