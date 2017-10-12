@@ -24,24 +24,30 @@ function getMockRecipes(): Recipe[] {
 
 
 function getMockProcesses(amount = 3): Process[] {
-    return <Process[]>getItemArray({
-        id: random.uuid(),
-        description: lorem.paragraphs(),
-        ingredients: getIngredients()
-    }, amount);
+    return <Process[]>getItemArray(processGenerator, amount);
 }
 
 function getIngredients(amount = 3): Ingredient[] {
-    return <Ingredient[]>getItemArray({
-        name: lorem.words(),
-        quantity: `${random.number()} ${lorem.word()}`
-    }, amount);
+    return <Ingredient[]>getItemArray(ingredientGenerator, amount);
 }
 
-function getItemArray(item: Object, amount = 3): Object[] {
+function getItemArray(itemGenerator: () => Object, amount = 3): Object[] {
     const items: Object[] = [];
-    _.times(amount, () => {
-        items.push(item);
-    });
+    _.times(amount, () => items.push(itemGenerator()));
     return items;
+}
+
+function processGenerator(): Process {
+    return {
+        id: random.uuid(),
+        description: lorem.paragraphs(),
+        ingredients: getIngredients()
+    };
+}
+
+function ingredientGenerator(): Ingredient {
+    return {
+        name: lorem.words(),
+        quantity: `${random.number()} ${lorem.word()}`
+    };
 }
