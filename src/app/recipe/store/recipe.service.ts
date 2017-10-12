@@ -23,15 +23,15 @@ export class RecipeService {
             .catch(err => Observable.throw(err));
     }
 
-    post$(newRecipe: NewRecipe) {
+    post(newRecipe: NewRecipe) {
         this.store.dispatch(new PostRecipeAction(newRecipe));
     }
 
-    update$(recipe: Recipe) {
+    update(recipe: Recipe) {
         this.store.dispatch(new UpdateRecipeAction(recipe));
     }
 
-    delete$(id: string) {
+    delete(id: string) {
         this.store.dispatch(new DeleteRecipeAction(id));
     }
 

@@ -6,9 +6,18 @@ import { mockRecipeItems } from '../../test/recipe-items.mock';
 import { Process } from '../store/models/process';
 import { Ingredient } from '../store/models/ingredient';
 import { RecipeItem } from '../../store/models/recipe-item';
+import { NewRecipe } from '../store/models/new-recipe';
 
 export const mockRecipes: Recipe[] = getMockRecipes();
 export const mockRecipe: Recipe = mockRecipes[ 0 ];
+export const mockPostedRecipe: Recipe = _.assign({}, mockRecipe, { id: 'test' });
+export const mockUpdatedRecipe: Recipe = _.assign({}, mockRecipe, { name: 'test' });
+
+const keysOfNewRecipe = _(mockRecipe)
+    .keys()
+    .remove('id')
+    .value();
+export const mockNewRecipe = <NewRecipe>_.pick(mockRecipe, keysOfNewRecipe);
 
 function getMockRecipes(): Recipe[] {
     return mockRecipeItems.map((recipeItem: RecipeItem) => {

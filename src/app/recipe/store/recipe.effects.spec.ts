@@ -7,10 +7,11 @@ import { hot, cold } from 'jasmine-marbles';
 
 import { RecipeEffects } from './recipe.effects';
 import { RecipeApiService } from './recipe-api.service';
-import { RequestRecipeAction, SetRecipeAction } from './recipe.actions';
+import { RequestRecipeAction, SetRecipeAction, UpdateRecipeAction, PostRecipeAction, DeleteRecipeAction } from './recipe.actions';
 
-import { mockRecipes, mockRecipe } from '../test/recipes.mock';
+import { mockRecipes, mockRecipe, mockPostedRecipe, mockUpdatedRecipe, mockNewRecipe } from '../test/recipes.mock';
 import { recipeApiServiceStub } from '../test/recipe-api.service.mock';
+import { NewRecipe } from './models/new-recipe';
 
 describe('RecipeEffects', () => {
     let apiService, effects;
@@ -31,6 +32,31 @@ describe('RecipeEffects', () => {
             actions = hot('--a-', { a: new RequestRecipeAction(mockRecipe.id) });
             const expectedResult = cold('--b', { b: new SetRecipeAction(mockRecipe) });
             expect(effects.requestRecipe$).toBeObservable(expectedResult);
+        });
+    });
+    describe('updateRecipe$', () => {
+        it('should return a SetRecipeAction', () => {
+            actions = hot('--a-', { a: new UpdateRecipeAction(mockUpdatedRecipe) });
+            const expectedResult = cold('--b', { b: new SetRecipeAction(mockUpdatedRecipe) });
+            expect(effects.updateRecipe$).toBeObservable(expectedResult);
+        });
+    });
+    describe('postRecipe$', () => {
+        it('should return a SetRecipeAction', () => {
+            actions = hot('--a-', { a: new PostRecipeAction(mockNewRecipe) });
+            const expectedResult = cold('--b', { b: new SetRecipeAction(mockPostedRecipe) });
+            expect(effects.postRecipe$).toBeObservable(expectedResult);
+        });
+    });
+    describe('deleteRecipe$', () => {
+        it('should return a Response', () => {
+            actions = hot('--a-', { a: new DeleteRecipeAction(mockRecipe.id) });
+            const expectedResult = new Response();
+            effects.deleteRecipe$.subscribe(outcome => {
+                expect(outcome).toEqual(expectedResult);
+            });
+            // const expectedResult = hot('--b', { b: new Response() });
+            // expect(effects.deleteRecipe$).toBeObservable(expectedResult);
         });
     });
 
