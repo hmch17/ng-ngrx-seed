@@ -12,6 +12,7 @@ import { RequestRecipeAction, SetRecipeAction, UpdateRecipeAction, PostRecipeAct
 import { mockRecipes, mockRecipe, mockPostedRecipe, mockUpdatedRecipe, mockNewRecipe } from '../test/recipes.mock';
 import { recipeApiServiceStub } from '../test/recipe-api.service.mock';
 import { NewRecipe } from './models/new-recipe';
+import { mockAction } from '../test/action.mock';
 
 describe('RecipeEffects', () => {
     let apiService, effects;
@@ -51,12 +52,8 @@ describe('RecipeEffects', () => {
     describe('deleteRecipe$', () => {
         it('should return a Response', () => {
             actions = hot('--a-', { a: new DeleteRecipeAction(mockRecipe.id) });
-            const expectedResult = new Response();
-            effects.deleteRecipe$.subscribe(outcome => {
-                expect(outcome).toEqual(expectedResult);
-            });
-            // const expectedResult = hot('--b', { b: new Response() });
-            // expect(effects.deleteRecipe$).toBeObservable(expectedResult);
+            const expectedResult = hot('--b', { b: mockAction });
+            expect(effects.deleteRecipe$).toBeObservable(expectedResult);
         });
     });
 
