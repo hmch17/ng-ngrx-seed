@@ -12,16 +12,22 @@ import { cache } from '../utils/rxjs-helpers';
 @Injectable()
 export class CookbookApiService {
     baseUrl = environment.baseUrl;
+    userId: string;
     user$: Observable<User>;
+    recipeItems$: Observable<RecipeItem[]>;
 
     constructor(
         private http: HttpClient
     ) { }
 
     getRecipeItems$(userId: string): Observable<RecipeItem[]> {
-        return cache(this.http.get(`${this.baseUrl}/cookbooks/${userId}`)
-            .map(cookbook => cookbook[ 'recipeItems' ]))
-            .catch(err => Observable.throw(err));
+        if (!this.userId || this.userId !== userId) {
+            this.userId = userId;
+            this.recipeItems$ = cache(this.http.get(`${this.baseUrl}/cookbooks/${userId}`)
+                .map(cookbook => cookbook[ 'recipeItems' ]))
+                .catch(err => Observable.throw(err));
+        }
+        return this.recipeItems$;
     }
 
     getUser$(force = false): Observable<User> {
