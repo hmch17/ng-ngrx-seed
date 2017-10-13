@@ -1,6 +1,5 @@
 import { TestBed, inject } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { HttpErrorResponse } from '@angular/common/http';
 import * as _ from 'lodash';
 import '../utils/rxjs-operators';
 
@@ -33,6 +32,28 @@ describe('CookbookApiService', () => {
             });
         httpMock.expectOne(requestUrl)
             .flush({ recipeItems: mockRecipeItems });
+        httpMock.verify();
+    });
+
+    it('should successfully get user without specifying the value of force', () => {
+        const requestUrl = `${service.baseUrl}/user`;
+        service.getUser$()
+            .subscribe(response => {
+                expect(response).toEqual(mockUser);
+            });
+        httpMock.expectOne(requestUrl)
+            .flush(mockUser);
+        httpMock.verify();
+    });
+
+    it('should successfully get user', () => {
+        const requestUrl = `${service.baseUrl}/user`;
+        service.getUser$(true)
+            .subscribe(response => {
+                expect(response).toEqual(mockUser);
+            });
+        httpMock.expectOne(requestUrl)
+            .flush(mockUser);
         httpMock.verify();
     });
 
