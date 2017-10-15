@@ -1,4 +1,4 @@
-import { GloballySharedModule } from './globally-shared.module';
+import { BaseModule } from './base.module';
 import { MdComponentsModule } from './md-components.module';
 
 describe('MdComponentsModule', () => {

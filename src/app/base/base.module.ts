@@ -24,4 +24,4 @@ const IMPORTS = [
     imports: IMPORTS,
     exports: [ ...IMPORTS, ...DECLARATIONS ]
 })
-export class GloballySharedModule { }
+export class BaseModule { }

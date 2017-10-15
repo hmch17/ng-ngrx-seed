@@ -6,12 +6,11 @@ import { RecipeEditComponent } from './edit/edit.component';
 import { RecipeService } from './store/recipe.service';
 import { RecipeApiService } from './store/recipe-api.service';
 import { StoreModule } from '@ngrx/store';
-import { GloballySharedModule } from '../globally-shared/globally-shared.module';
+import { BaseModule } from '../base/base.module';
 
 @NgModule({
     imports: [
-        CommonModule,
-        GloballySharedModule,
+        BaseModule,
         RecipeRoutingModule
     ],
     declarations: [ RecipeEditComponent ],

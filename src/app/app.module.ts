@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { GloballySharedModule } from './globally-shared/globally-shared.module';
+import { BaseModule } from './base/base.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,7 +30,7 @@ import { environment } from '../environments/environment';
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
-        GloballySharedModule,
+        BaseModule,
         AppRoutingModule,
         RecipeModule,
         StoreModule.forRoot(cookbookReducer),
