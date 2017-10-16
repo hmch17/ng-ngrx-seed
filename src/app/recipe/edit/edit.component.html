@@ -1,3 +1,14 @@
-<p>
-  edit works!
-</p>
+<div *ngIf="recipe$ | async as recipe">
+    <h1>{{ recipe.name }}</h1>
+    <p>{{ recipe.introduction }}</p>
+    <ol>
+        <li *ngFor="let process of recipe.processes">
+            <span>{{ process.description }}</span>
+            <ul>
+                <li *ngFor="let ingredient of process.ingredients">
+                    {{ ingredient.name }} {{ ingredient.quantity }}
+                </li>
+            </ul>
+        </li>
+    </ol>
+</div>
