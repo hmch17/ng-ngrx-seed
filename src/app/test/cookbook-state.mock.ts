@@ -1,4 +1,4 @@
-import { CookbookState } from '../store/cookbook.state';
+import { CookbookState } from '../store/cookbook-state';
 import { mockRecipeItems } from './recipe-items.mock';
 import { mockUser } from './user.mock';
 

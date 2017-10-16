@@ -1,8 +1,8 @@
-<div *ngIf="recipe$ | async as recipe">
-    <h1>{{ recipe.name }}</h1>
-    <p>{{ recipe.introduction }}</p>
+<div>
+    <h1>{{ name$ | async }}</h1>
+    <p>{{ introduction$ | async }}</p>
     <ol>
-        <li *ngFor="let process of recipe.processes">
+        <li *ngFor="let process of processes$ | async">
             <span>{{ process.description }}</span>
             <ul>
                 <li *ngFor="let ingredient of process.ingredients">

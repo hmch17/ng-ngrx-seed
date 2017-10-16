@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { Store, StoreModule } from '@ngrx/store';
 
 import { CookbookService } from './cookbook.service';
-import { CookbookState } from './cookbook.state';
+import { CookbookState } from './cookbook-state';
 import { cookbookReducer } from './cookbook.reducer';
 import { RequestRecipeItemsAction } from './recipe-items/recipe-items.actions';
 import { recipeItemsSelector } from './recipe-items/recipe-items.selector';

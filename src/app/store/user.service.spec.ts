@@ -6,7 +6,7 @@ import { UserService } from './user.service';
 import { userSelector } from './user/user.selector';
 import { RequestUserAction, UserLogoutAction, UserLoginAction } from './user/user.actions';
 import { cookbookReducer } from './cookbook.reducer';
-import { CookbookState } from './cookbook.state';
+import { CookbookState } from './cookbook-state';
 
 describe('UserService', () => {
     let store: Store<CookbookState>;

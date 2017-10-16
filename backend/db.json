@@ -14,11 +14,75 @@
     "recipes": [{
         "id": 1,
         "name": "Egg Salad",
-        "introduction": "A simple salad that everyone can make at home"
+        "introduction": "A simple salad that everyone can make at home",
+        "processes": [{
+                "id": "001001",
+                "description": "boil an egg",
+                "ingredients": [{
+                    "name": "egg",
+                    "quantity": "1 unit"
+                }]
+            },
+            {
+                "id": "001002",
+                "description": "cut the vegies",
+                "ingredients": [{
+                    "name": "vegies",
+                    "quantity": "as many vegies as you want"
+                }]
+            },
+            {
+                "id": "001003",
+                "description": "Blend them",
+                "ingredients": []
+            },
+            {
+                "id": "001004",
+                "description": "Add olive oil",
+                "ingredients": [{
+                    "name": "olive oil",
+                    "quantity": "as much as you want"
+                }]
+            }
+        ]
     }, {
         "id": 2,
         "name": "Fish and Chips",
-        "introduction": "Deep-fried fish and fries"
+        "introduction": "Deep-fried fish and fries",
+        "processes": [{
+                "id": "002001",
+                "description": "Prepare the fish",
+                "ingredients": [{
+                        "name": "pepper",
+                        "quantity": "some"
+                    },
+                    {
+                        "name": "salt",
+                        "quantity": "some"
+                    },
+                    {
+                        "name": "bread crumbs",
+                        "quantity": "some"
+                    }
+                ]
+            },
+            {
+                "id": "002002",
+                "description": "cut the potatos",
+                "ingredients": [{
+                    "name": "potato",
+                    "quantity": "as many vegies as you want"
+                }]
+            },
+            {
+                "id": "002003",
+                "description": "Fry them",
+                "ingredients": [{
+                    "name": "Oil",
+                    "quantity": "enough for frying the fish and the potatos"
+                }]
+            }
+        ]
     }],
     "user": {
         "id": "johndoe1",

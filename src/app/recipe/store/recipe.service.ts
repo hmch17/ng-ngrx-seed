@@ -2,10 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Recipe } from './models/recipe';
 import { Store } from '@ngrx/store';
-import { RecipeState } from './recipe.state';
+import { RecipeState } from './recipe-state';
 import { RequestRecipeAction, PostRecipeAction, UpdateRecipeAction, DeleteRecipeAction } from './recipe.actions';
-import { recipeSelector } from './recipe.selector';
 import { NewRecipe } from './models/new-recipe';
+import { nameSelector } from './name/name.selector';
+import { Process } from './models/process';
+import { processesSelector } from './processes/processes.selector';
+import { introductionSelector } from './introduction/introduction.selector';
+import { selectedProcessIdSelector } from './selected-process-id/selected-process-id.selector';
 
 @Injectable()
 export class RecipeService {
@@ -18,8 +22,23 @@ export class RecipeService {
         this.store.dispatch(new RequestRecipeAction(id));
     }
 
-    get recipe$(): Observable<Recipe> {
-        return this.store.select(recipeSelector)
+    get name$(): Observable<string> {
+        return this.store.select(nameSelector)
+            .catch(err => Observable.throw(err));
+    }
+
+    get introduction$(): Observable<string> {
+        return this.store.select(introductionSelector)
+            .catch(err => Observable.throw(err));
+    }
+
+    get processes$(): Observable<Process[]> {
+        return this.store.select(processesSelector)
+            .catch(err => Observable.throw(err));
+    }
+
+    get selectedProcessId$(): Observable<string> {
+        return this.store.select(selectedProcessIdSelector)
             .catch(err => Observable.throw(err));
     }
 

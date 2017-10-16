@@ -3,13 +3,17 @@ import { Store, StoreModule } from '@ngrx/store';
 import * as _ from 'lodash';
 
 import { RequestRecipeAction, PostRecipeAction, UpdateRecipeAction, DeleteRecipeAction } from './recipe.actions';
-import { RecipeState } from './recipe.state';
+import { RecipeState } from './recipe-state';
 import { recipeReducer } from './recipe.reducer';
 import { RecipeService } from './recipe.service';
 import { recipeSelector } from './recipe.selector';
 
 import { mockRecipes } from '../test/recipes.mock';
 import { NewRecipe } from './models/new-recipe';
+import { nameSelector } from './name/name.selector';
+import { introductionSelector } from './introduction/introduction.selector';
+import { processesSelector } from './processes/processes.selector';
+import { selectedProcessIdSelector } from './selected-process-id/selected-process-id.selector';
 
 describe('RecipeService', () => {
     let store: Store<RecipeState>;
@@ -39,10 +43,31 @@ describe('RecipeService', () => {
         })
     );
 
-    it('should select recipeSelector when recipe$() is being called', inject(
+    it('should select nameSelector when name$ is being called', inject(
         [ RecipeService ], (service: RecipeService) => {
-            const recipe$ = service.recipe$;
-            expect(store.select).toHaveBeenCalledWith(recipeSelector);
+            const name$ = service.name$;
+            expect(store.select).toHaveBeenCalledWith(nameSelector);
+        })
+    );
+
+    it('should select introductionSelector when introduction$ is being called', inject(
+        [ RecipeService ], (service: RecipeService) => {
+            const introduction$ = service.introduction$;
+            expect(store.select).toHaveBeenCalledWith(introductionSelector);
+        })
+    );
+
+    it('should select processesSelector when processes$ is being called', inject(
+        [ RecipeService ], (service: RecipeService) => {
+            const processes$ = service.processes$;
+            expect(store.select).toHaveBeenCalledWith(processesSelector);
+        })
+    );
+
+    it('should select selectedProcessIdSelector when processes$ is being called', inject(
+        [ RecipeService ], (service: RecipeService) => {
+            const selectedProcessId$ = service.selectedProcessId$;
+            expect(store.select).toHaveBeenCalledWith(selectedProcessIdSelector);
         })
     );
 

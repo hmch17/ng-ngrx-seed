@@ -1,3 +1,4 @@
-import { RecipeState } from './recipe.state';
+import { RecipeState } from './recipe-state';
+import { createFeatureSelector } from '@ngrx/store';
 
-export const recipeSelector = (state: RecipeState) => state;
+export const recipeSelector = createFeatureSelector<RecipeState>('recipe');

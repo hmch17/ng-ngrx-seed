@@ -1,5 +1,5 @@
 import { cookbookSelector } from './cookbook.selector';
-import { CookbookState } from './cookbook.state';
+import { CookbookState } from './cookbook-state';
 import { mockCookbookState } from '../test/cookbook-state.mock';
 
 describe('cookbookSelector', () => {

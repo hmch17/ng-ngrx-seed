@@ -7,6 +7,7 @@ import { RecipeAction, SetRecipeAction } from './recipe.actions';
 import { mockRecipe } from '../test/recipes.mock';
 import { Recipe } from './models/recipe';
 import { mockRecipeState } from '../test/recipe-state.mock';
+import { RecipeState } from './recipe-state';
 
 describe('recipeReducer', () => {
     const state = mockRecipeState;

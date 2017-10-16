@@ -1,10 +1,10 @@
 import { selectedProcessIdSelector } from './selected-process-id.selector';
-import { mockRecipeState } from '../../test/recipe-state.mock';
+import { mockRootState } from '../../test/recipe-state.mock';
 import { Process } from '../models/process';
 
 describe('processesSelector', () => {
-    it('should return the processes', () => {
-        const selectedState: string = selectedProcessIdSelector(mockRecipeState);
-        expect(selectedState).toEqual(mockRecipeState.selectedProcessId);
+    it('should return the selected process id', () => {
+        const selectedState: string = selectedProcessIdSelector(mockRootState);
+        expect(selectedState).toEqual(mockRootState.recipe.selectedProcessId);
     });
 });

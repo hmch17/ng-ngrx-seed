@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { User } from './models/user';
 import { UserLogoutAction, UserLoginAction, RequestUserAction } from './user/user.actions';
 import { userSelector } from './user/user.selector';
-import { CookbookState } from './cookbook.state';
+import { CookbookState } from './cookbook-state';
 
 @Injectable()
 export class UserService {

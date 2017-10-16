@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { RecipeItem } from './models/recipe-item';
 import { CookbookApiService } from './cookbook-api.service';
-import { CookbookState } from './cookbook.state';
+import { CookbookState } from './cookbook-state';
 import { recipeItemsSelector } from './recipe-items/recipe-items.selector';
 import { selectedRecipeIdSelector } from './selected-recipe-id/selected-recipe-id.selector';
 import { RequestRecipeItemsAction } from './recipe-items/recipe-items.actions';
