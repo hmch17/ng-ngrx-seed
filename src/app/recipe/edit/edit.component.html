@@ -1,14 +1,16 @@
-<div>
-    <h1>{{ name$ | async }}</h1>
-    <p>{{ introduction$ | async }}</p>
-    <ol>
-        <li *ngFor="let process of processes$ | async">
-            <span>{{ process.description }}</span>
-            <ul>
-                <li *ngFor="let ingredient of process.ingredients">
-                    {{ ingredient.name }} {{ ingredient.quantity }}
-                </li>
-            </ul>
-        </li>
-    </ol>
-</div>
+<mat-card>
+    <mat-card-title>{{ name$ | async }}</mat-card-title>
+    <mat-card-content>
+        <p>{{ introduction$ | async }}</p>
+        <ol>
+            <li *ngFor="let process of processes$ | async">
+                <span>{{ process.description }}</span>
+                <ul>
+                    <li *ngFor="let ingredient of process.ingredients">
+                        {{ ingredient.name }} {{ ingredient.quantity }}
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </mat-card-content>
+</mat-card>
