@@ -1,5 +1,8 @@
-<ul>
-    <li *ngFor="let recipeItem of recipeItems$ | async" [routerLink]="'recipe/' + recipeItem.id">
-        {{ recipeItem.name }}
-    </li>
-</ul>
+<mat-card>
+    <mat-card-title>My Cookbook</mat-card-title>
+    <mat-list>
+        <mat-list-item *ngFor="let recipeItem of recipeItems$ | async" [routerLink]="'recipe/' + recipeItem.id">
+            <button mat-button>{{ recipeItem.name }}</button>
+        </mat-list-item>
+    </mat-list>
+</mat-card>
