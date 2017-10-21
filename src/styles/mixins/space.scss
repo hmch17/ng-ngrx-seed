@@ -1,0 +1,4 @@
+$space-basic: 4px;
+@function space($level) {
+    @return $space-basic * $level;
+}
